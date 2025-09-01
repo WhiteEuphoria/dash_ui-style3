@@ -46,7 +46,7 @@ class TransactionResource extends Resource
                     : Account::pluck('number', 'id'))
                 ->searchable()
                 ->preload()
-                ->required(),
+                ->nullable(),
             Forms\Components\TextInput::make('from')->required()->maxLength(255),
             Forms\Components\TextInput::make('to')->required()->maxLength(255),
             Forms\Components\Select::make('type')
@@ -58,13 +58,8 @@ class TransactionResource extends Resource
                 ])->required(),
             Forms\Components\TextInput::make('amount')
                 ->numeric()
-                ->suffix(fn (Get $get) => User::find($get('user_id'))?->currency)
                 ->required()
                 ->rules(['numeric','gte:0.01']),
-            Forms\Components\TextInput::make('currency')
-                ->maxLength(3)
-                ->default(fn (Get $get) => User::find($get('user_id'))?->currency)
-                ->required(),
             Forms\Components\Select::make('status')
                 ->options([
                     'pending' => 'pending',
@@ -72,7 +67,6 @@ class TransactionResource extends Resource
                     'blocked' => 'blocked',
                     'hold' => 'hold',
                 ])->required(),
-            Forms\Components\KeyValue::make('meta')->nullable(),
         ]);
     }
 
@@ -86,8 +80,9 @@ class TransactionResource extends Resource
                 Tables\Columns\TextColumn::make('from'),
                 Tables\Columns\TextColumn::make('to'),
                 Tables\Columns\TextColumn::make('type')->badge(),
-                Tables\Columns\TextColumn::make('amount')->money(fn($record) => $record->currency),
-                Tables\Columns\TextColumn::make('currency'),
+                Tables\Columns\TextColumn::make('amount')
+                    ->label('Amount')
+                    ->formatStateUsing(fn ($state, $record) => number_format((float) $state, 2) . ' ' . ($record->currency ?? '')),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
                     ->color(fn($state) => match ($state) {

@@ -15,7 +15,7 @@ class AccountsRelationManager extends RelationManager
 {
     protected static string $relationship = 'accounts';
 
-    protected static ?string $title = 'Accounts';
+    protected static ?string $title = 'Dashboard';
 
     public function form(Form $form): Form
     {

@@ -28,7 +28,7 @@ class TransactionsRelationManager extends RelationManager
                 ->options(fn () => Account::where('user_id', $this->getOwnerRecord()->id)->pluck('number', 'id'))
                 ->searchable()
                 ->preload()
-                ->required(),
+                ->nullable(),
 
             Forms\Components\TextInput::make('from')
                 ->label('From')
@@ -110,4 +110,3 @@ class TransactionsRelationManager extends RelationManager
         ]);
     }
 }
-

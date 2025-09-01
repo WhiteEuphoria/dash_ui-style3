@@ -1607,7 +1607,7 @@ namespace App\Models {
      * @property string $type
      * @property string $to
      * @property string $from
-     * @property int $account_id
+     * @property int|null $account_id
      * @property int $user_id
      * @property int $id
      * @property-read \App\Models\User $user

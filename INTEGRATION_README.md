@@ -1,6 +1,6 @@
 # Интеграция кастомной темы в Laravel
 
-Эта сборка добавляет кастомную верстку (из архива `personal-acc.zip`) в Laravel‑проект `project6369643.tilda.ws-1`:
+Эта сборка добавляет кастомную верстку (из архива `personal-acc.zip`) в Laravel‑проект `dash_ui`:
 
 - Ассеты скопированы в: `public/personal-acc/{css,js,img,fonts,favicon.ico}`
 - Общие layout’ы: `resources/views/layouts/app.blade.php`, `resources/views/layouts/admin.blade.php`

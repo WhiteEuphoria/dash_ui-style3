@@ -74,7 +74,17 @@ class AccountResource extends Resource
             Forms\Components\TextInput::make('broker_initials')
                 ->label('Broker Initials'),
 
-            // Note: No Status and no Expiration Date on client side
+            // Allow client to set Status (admin can edit everything in admin panel)
+            Forms\Components\Select::make('status')
+                ->label('Status')
+                ->options([
+                    'Active' => 'Active',
+                    'Hold' => 'Hold',
+                    'Blocked' => 'Blocked',
+                ])
+                ->required(),
+
+            // Still no Expiration Date on client side
         ]);
     }
 
