@@ -20,11 +20,8 @@ class Dashboard extends BaseDashboard
 
     public function getWidgets(): array
     {
-        // Show stats and accounts only
+        // Keep only account details on dashboard
         return [
-            ClientStatsOverview::class,
-            BrokerageAccountWidget::class,
-            TransitAccountWidget::class,
             \App\Filament\Client\Widgets\AllAccountsWidget::class,
         ];
     }
