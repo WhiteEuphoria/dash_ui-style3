@@ -1,0 +1,76 @@
+{
+  // ---------- Core ----------
+  "workbench.startupEditor": "none",
+  "files.autoSave": "onWindowChange",
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+
+  // ---------- PHP / Laravel ----------
+  "php.validate.executablePath": "/opt/homebrew/bin/php",
+  "php.suggest.basic": false,
+
+  "intelephense.environment.phpVersion": "8.3",
+  "intelephense.telemetry.enabled": false,
+  "intelephense.files.maxSize": 10000000,
+  "intelephense.files.associations": [
+    "*.php",
+    "*.phtml",
+    "*.blade.php"
+  ],
+
+  "laravel-pint.enable": true,
+  "laravel-pint.onSave": true,
+  "laravel-pint.useConfig": true,
+  "[php]": {
+    "editor.defaultFormatter": "open-southeners.laravel-pint"
+  },
+
+  "blade.format.enable": true,
+  "blade.format.wrapAttributes": "force-aligned",
+  "[blade]": {
+    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+  },
+
+  // ---------- Git / GitLens ----------
+  "git.confirmSync": false,
+  "gitlens.views.drafts.avatars": false,
+
+  // ---------- Live Server / Sass ----------
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css/"
+    }
+  ],
+  "liveSassCompile.settings.excludeList": [
+    "**/node_modules/**",
+    ".vscode/**"
+  ],
+  "liveSassCompile.settings.autoprefix": [
+    "> 1%",
+    "last 20 version"
+  ],
+
+  // ---------- ChatGPT Codex ----------
+  "chatgpt.apiBase": "https://chatgpt.com/codex",
+  "chatgpt.config": {
+
+
+
+    "model": "gpt-5-pro",
+    "temperature": 0.1,
+    "reasoning": "high",
+    "approval_mode": "auto",
+    "max_tokens": 4096
+  },
+  "chatgpt.cliExecutable": "/opt/homebrew/bin/codex",
+  "chatgpt.openOnStartup": true,
+  "laravel-pint.dirtyOnly": true,
+  "editor.fontSize": 14,
+"workbench.statusBar.visible": false,
+"git.ignoreLimitWarning": true
+}
